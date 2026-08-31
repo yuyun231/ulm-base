@@ -1,0 +1,10 @@
+# Phase F.2：出厂权限预配（事件导入 permission_rules 投影；面板管理的事实源）
+rules:
+  - { ruleId: f-human-panel,      subject: "human:*",              action: "admin:*",           object: "*", effect: allow }
+  - { ruleId: f-admin-judge,      subject: "agent:task-admin",     action: "task:judge",        object: "*", effect: allow }
+  - { ruleId: f-admin-publish,    subject: "agent:task-admin",     action: "task:publishChild", object: "*", effect: allow }
+  - { ruleId: f-admin-restruct,   subject: "agent:task-admin",     action: "task:restructure",  object: "*", effect: allow }
+  - { ruleId: f-hist-create,      subject: "agent:historian",      action: "task:create",       object: "*", effect: allow }
+  - { ruleId: f-hist-read,        subject: "agent:historian",      action: "doc:read",          object: "*", effect: allow }
+  - { ruleId: f-plan-respond,     subject: "agent:plan-assistant", action: "dialogue:*",        object: "*", effect: allow }
+  - { ruleId: f-agent-deny-admin, subject: "agent:*",              action: "admin:*",           object: "*", effect: deny }

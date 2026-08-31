@@ -1,0 +1,38 @@
+# 权限规则表：主体×动作×对象 → 允许/拒绝/需审批
+# 静态门禁基线（服务通道 PermissionRules 实时校验）；投影轨出厂权限见 permissions.yaml
+rules:
+  - subject: 'human:*'
+    action: '*'
+    object: '*'
+    decision: allow
+  - subject: 'agent:historian'
+    action: 'doc:read'
+    object: '*'
+    decision: allow
+  # Phase F.3：自动化规则引擎（决策点 2：引擎放行 + 默认审批卡点，审批分层由规则层 approval 开关控制）
+  - subject: 'module:automation'
+    action: 'task:create'
+    object: '*'
+    decision: allow
+  - subject: 'module:automation'
+    action: 'task:judge'
+    object: '*'
+    decision: require-approval
+  # Phase 0 修复⑩：判定请求权限（4.3 判定人 task-admin；与投影轨 f-admin-judge 对齐，否则默认 deny）
+  - subject: 'agent:task-admin'
+    action: 'task:judge'
+    object: '*'
+    decision: allow
+  # Phase 0 修复③⑨：调度器经命令面自动派发与判定转换（D-assign / D-judge）
+  - subject: 'module:scheduler'
+    action: 'task:assign'
+    object: '*'
+    decision: allow
+  - subject: 'module:scheduler'
+    action: 'task:approve'
+    object: '*'
+    decision: allow
+  - subject: 'module:scheduler'
+    action: 'task:reject'
+    object: '*'
+    decision: allow

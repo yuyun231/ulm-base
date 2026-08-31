@@ -1,0 +1,23 @@
+node_modules/
+store/
+*.log
+
+# 第三方整包（不入库）
+openclaw-2026.7.1-2/
+# 构建产物
+dist/
+# 本地工具目录
+.zcode/
+# SQLite 衍生文件
+*.sqlite-shm
+*.sqlite-wal
+
+# 文档不入库（仅本地保留）
+docs/
+/设计确立项.md
+/阅读这一个文件.md
+/ulm-harness.md
+/openclaw-integration-investigation.md
+/ulm-base*全接缝清单*.md
+superpowers/
+/文档.txt

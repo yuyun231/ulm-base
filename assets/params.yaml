@@ -1,0 +1,68 @@
+agent:
+  sleepCountdownSec: 30
+scheduler:
+  maxWorkingAgents: 4
+historian:
+  reportEnabled: false
+automation:
+  fullAuto: false
+consult:
+  timeoutSec: 300
+  requireApproval: false
+heartbeat:
+  intervalSec: 30
+  timeoutSec: 90
+dialogue:
+  compressThreshold: 100000
+memory:
+  injectInlineMaxBytes: 4096
+feedback:
+  # 反馈区关键节点事件（7.2："family:subtype" 清单进参数 yaml）。
+  # 驾驶舱首版（P 阶段）默认清单：任务/agent/目的生命周期 + 人相关的 admin/comm 节点；
+  # organ（action/thought）粒度过细不推送，调度器内部事件（loaded/timerFired 等）不推送。
+  keyNodeEvents:
+    - task:created
+    - task:assigned
+    - task:stateChanged
+    - task:nodeSubmitted
+    - task:nodeJudged
+    - task:rejected
+    - task:childPublished
+    - task:issueReported
+    - task:purposeCreated
+    - task:purposeConfirmed
+    - task:purposeLaunched
+    - schedule:woken
+    - schedule:agentLost
+    - comm:consultInitiated
+    - comm:consultAnswered
+    - comm:consultRejected
+    - dialogue:turnPosted
+    - admin:paramChanged
+    - admin:permissionChanged
+    - admin:permissionRemoved
+    - admin:agentRegistered
+    - admin:agentUpdated
+    - admin:agentRemoved
+    - admin:agentRegisterRejected
+    - admin:ruleChanged
+    - admin:piercingIssued
+    - admin:agentSpawned
+    - admin:agentExited
+    - admin:agentRestartScheduled
+    - doc:admitted
+agents:
+  coreList:
+    - historian
+    - task-admin
+    - plan-assistant
+    - cockpit-interaction
+judge:
+  defaults:
+    fixed: task-admin
+    aggregate: task-admin
+    normal: task-admin
+    small: auto-verifier
+    longterm: human
+guidance:
+  ackTimeoutSec: 60

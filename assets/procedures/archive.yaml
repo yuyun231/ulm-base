@@ -1,0 +1,9 @@
+# 归档工序模板（自动化规则的 createTask action 可引用 procedure: archive）
+taskType: normal
+nodes:
+  - nodeKey: archive
+    goalTemplate: "归档任务 {taskId} 的产出与记录"
+    acceptanceCriteriaRef: parent
+    assignRole: worker
+    priority: 3
+edges: []

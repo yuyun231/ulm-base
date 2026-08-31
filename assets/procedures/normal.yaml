@@ -1,0 +1,16 @@
+# Phase F.2 D5：结构化工序模板——任务管理员按模板逐节点走 publishChildTask，工作流即 DAG 实例化
+# assignRole 为 agent 发布时的指派提示（执行侧消费，基座不建模板执行器——器官不进骨架）
+taskType: normal
+nodes:
+  - nodeKey: execute
+    goalTemplate: "执行：{goal}"
+    acceptanceCriteriaRef: parent   # parent=引用父任务验收标准；或 inline 文本
+    assignRole: worker
+    priority: 5
+  - nodeKey: verify
+    goalTemplate: "验证：{goal}"
+    acceptanceCriteriaRef: parent
+    assignRole: worker
+    priority: 5
+edges:
+  - [execute, verify]

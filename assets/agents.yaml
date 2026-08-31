@@ -1,0 +1,17 @@
+# Phase F.2：出厂内置 agent 身份声明（面板可见可改；导入语义=补缺不覆盖 D8）
+agents:
+  - agentId: task-admin
+    role: task-admin
+    description: 任务管理员：节点判定(4.3)、子任务发布(4.4)、DAG 重构(4.5)
+    capabilities: [task:judge, task:publishChild, task:restructure]
+    spawnPolicy: spawn
+  - agentId: historian
+    role: historian
+    description: 史官：不设订阅不被推送(5.9注1)，按节律查阅事件流/记录流，自主决定是否发布任务
+    capabilities: [stream:read, task:create]
+    spawnPolicy: spawn
+  - agentId: plan-assistant
+    role: plan-assistant
+    description: 方案助手：每聚合任务一个对话(5.8)，征求决策四步流转
+    capabilities: [dialogue:respond]
+    spawnPolicy: spawn

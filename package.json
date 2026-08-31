@@ -1,0 +1,27 @@
+{
+  "name": "ulm-base",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "ulm 基座：多agent协作调度系统的确定性代码层",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.0.3",
+    "ws": "8.21.3",
+    "yaml": "2.9.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vitest": "4.1.11",
+    "@types/node": "^24",
+    "@types/better-sqlite3": "latest",
+    "@types/ws": "^8"
+  }
+}

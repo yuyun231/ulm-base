@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ulm-base 驾驶舱</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">ulm-base<span class="sub">驾驶舱</span></div>
+      <nav id="nav"></nav>
+      <div id="conn" class="conn off">● 连接中…</div>
+    </aside>
+    <main id="main"></main>
+    <aside id="feedcol">
+      <div class="colhead">反馈区<span class="sub">事件订阅视图</span></div>
+      <div id="feedfilters"></div>
+      <div id="feedlist"></div>
+    </aside>
+  </div>
+  <div id="toasts"></div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
