@@ -1,0 +1,33 @@
+{
+  "id": "ulm-harness-spike",
+  "name": "ULM Harness Spike",
+  "description": "ULM controlled agent harness: base WS link service (register/heartbeat/11 commands/7 endpoints) + AgentHarness (id: ulm-controlled) running the ULM controlled loop.",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "wsUrl": {
+        "type": "string",
+        "description": "ULM base WebSocket URL (default ws://localhost:8080 or ULM_WS_URL)"
+      },
+      "agents": {
+        "type": "array",
+        "description": "ULM agents to link; each gets one base WS connection",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "agentId": { "type": "string", "description": "ULM base agentId (must be registered in agent_registry)" },
+            "role": { "type": "string" },
+            "capabilities": { "type": "array", "items": { "type": "string" } },
+            "openclawAgentId": { "type": "string", "description": "OpenClaw-side agent id when different from base agentId" }
+          },
+          "required": ["agentId", "role"]
+        }
+      }
+    }
+  }
+}

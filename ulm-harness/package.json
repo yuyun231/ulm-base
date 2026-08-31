@@ -1,0 +1,36 @@
+{
+  "name": "ulm-harness-spike",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "ULM harness for OpenClaw. Phase 1 SDK spike completed; P3/P4/P5 modules build against src/contracts.ts.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "ws": "8.21.3"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.7.1"
+  },
+  "devDependencies": {
+    "openclaw": "2026.7.1",
+    "typescript": "^5.6.0",
+    "vitest": "4.1.11",
+    "@types/node": "^24.0.0",
+    "@types/ws": "^8.0.0"
+  },
+  "openclaw": {
+    "extensions": ["./src/index.ts"],
+    "compat": {
+      "pluginApi": ">=2026.7.1",
+      "minGatewayVersion": "2026.7.1"
+    },
+    "build": {
+      "openclawVersion": "2026.7.1",
+      "pluginSdkVersion": "2026.7.1"
+    }
+  }
+}

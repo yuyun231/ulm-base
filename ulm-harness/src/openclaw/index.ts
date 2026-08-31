@@ -1,0 +1,10 @@
+export { createHarnessAdapter, HarnessState, ULM_WAKE_MARKER } from "./harness-adapter.js";
+export type { HarnessAdapterDeps } from "./harness-adapter.js";
+export { createTurnStarter, ulmSessionKey, buildWakeMessage } from "./turn-starter.js";
+export type { TurnStarterDeps, GatewayRequest } from "./turn-starter.js";
+export { createCommandFacade } from "./command-facade.js";
+export type { CommandFacadeDeps } from "./command-facade.js";
+export { WakeRegistry } from "./wake-registry.js";
+export { createOpenClawModelPort } from "./model-port.js";
+export { createOpenClawToolPort } from "./tool-port.js";
+export { createLocalGatewayRpc } from "./gateway-rpc.js";
